@@ -28,18 +28,22 @@
         .class5 + .class6 {
             border:2px solid green;
         }
+        /*Selectionne tout les .class8 précédé de .class7*/
         .class7 ~ .class8 {
             border:6px solid grey;
         }
+        /*Hover*/
         a:hover {
             color:yellow;
         }
+        /*Focus lorsque l'on clique sur ce dernier*/
         a:focus {
             color:red;
         }
         a:link {
             text-decoration: none;
         }
+        /*Style lorsque le lien à déja été visité*/
         a:visited {
             color:black;
         } 
@@ -49,9 +53,11 @@
         a:visited:focus {
             color:red;
         }
+        /*après la classe link on ajoute le lien grâce à la fonction attr() et l'attribut href*/
         .link:after {
             content: " (" attr(href) ")";
         }
+        /*Selectionne chaque première lettre des h1*/
         h1::first-letter {
             text-transform: uppercase;
         }
@@ -65,6 +71,7 @@
         input:enabled::placeholder{
            color:white;
         }
+        /*Div vide sans enfant également le texte et les escpacements*/
         div:empty {
             width:100px;
             height: 30px;

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        /*Selectionne la div complète qui comporte ces deux classes*/
+        .class1.class2 {
+            color:red;
+            font-size: 34px;
+        }
+        /*Selectionne tout les enfant de class1 s'appelant class2*/
+        .class1 .class2 {
+            font-size: 28px;
+            color:blue;
+        }
+        /*Selectionne tout les class2 enfants(et son héritage)*/
+        .class3 > .class4 {
+            background: green;
+        }
+        /*Selectionne tout les .class6 placé immédiatement après .class5*/
+        .class5 + .class6 {
+            border:2px solid green;
+        }
+        .class7 ~ .class8 {
+            border:6px solid grey;
+        }
+        a:hover {
+            color:yellow;
+        }
+        a:focus {
+            color:red;
+        }
+        a:link {
+            text-decoration: none;
+        }
+        a:visited {
+            color:black;
+        } 
+        a:visited:hover {
+            color:yellow;
+        }
+        a:visited:focus {
+            color:red;
+        }
+        .link:after {
+            content: " (" attr(href) ")";
+        }
+        h1::first-letter {
+            text-transform: uppercase;
+        }
+        input:disabled {
+            background-color: aqua;
+        }
+        input:enabled{
+            background-color: grey;
+            border: none;  
+        }
+        input:enabled::placeholder{
+           color:white;
+        }
+        div:empty {
+            width:100px;
+            height: 30px;
+            background-color: red;
+        }
+    </style>
+
+<body>
+    <div>
+        <h1>exemple Différence .class1.class2 et .class1 .class2</h1>
+        <div class="class1 class2">
+            Style css .class1.class2 
+        </div>
+        <hr>
+        <div class="class1">
+            <div class="class2">
+                    Style css .class1 .class2 
+            </div>
+            
+        </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+ 
+    <div>
+        <h1>exemple .class3 > .class4 (et son heritage) Fonctionne (class4 est l'enfant direct de class3 sinon il n'est pas sélectionné)</h1>
+        <div class="class3">
+            <div class="class4">
+                    Style css .class3 > .class4 
+                    <div class="class5">Enfant de class4</div>
+            </div>
+            <div class="class5">
+                    class5
+                    <div class="class4">Enfant de class5 mais la class de la div = class4</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h1>exemple .class3 > .class4 Ne Fonctionne Pas (une div suplémentaire entre class3 et class4)</h1>
+        <div class="class3">
+            <div>
+                <div class="class4">
+                        Style css .class3 > .class4 
+                        <div class="class5">Enfant de class4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <div>
+        <h1>exemple .class5 + .class6 (class6 placé immédiatement après class5)</h1>
+        <div class="class5">
+            Class 5
+        </div>
+        <div class="class6">
+            Class 6
+        </div>
+    </div>
+    <div>
+        <h1>exemple .class7 ~ .class8 (class8 prècédé par class7)</h1>
+        <div class="class7">
+            Class 7
+        </div>
+        <div class="class8">
+            Class 8
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h1>exemple hover, active, visited, link</h1>
+        <a href="https://www.facebook.fr" target="_blank">Lien</a><br>
+        <a href="#" target="_blank">Lien visited</a>
+    </div>
+    <hr>
+    <div>
+        <h1>exemple fonction attr()</h1>
+        <a class="link" href="https://www.w3schools.com" target="_blank">Lien</a><br>
+    </div>
+    <hr>
+    <div>
+        <h1>Exemple input</h1> 
+        <input type="text" placeholder="Desabled input" disabled><br>
+        <input type="text" placeholder="Enabled input"><br>
+    </div>
+    <hr>
+    <div>
+        <h1>Exemple div n'a pas d'enfant vide:empty (inclus texte et espacement)</h1> 
+        <div class="vide"></div>
+    </div>
+</body> 
+</html>
